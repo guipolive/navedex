@@ -1,5 +1,6 @@
+import { fontWeight } from './../../styles/variables';
 import styled from "styled-components"
-import {size} from '../../styles/sizes';
+import {font} from '../../styles/variables';
 
 export const LoginPage = styled.div`
 	width: 100%;
@@ -50,6 +51,11 @@ export const LoginContainer = styled.div`
 		
 		label {
 			display: block;
+			
+			margin-bottom: 4px;
+			
+			font-size: ${font.small};
+			font-weight: ${fontWeight.bold};
 		}
 
 		input {
@@ -68,5 +74,14 @@ export const LoginContainer = styled.div`
 		border: 0;
 
 		margin-top: auto;
+
+		font-weight: ${fontWeight.bold};
+
+		transition: transform .2s, box-shadow .2s;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+		}
 	}
 `

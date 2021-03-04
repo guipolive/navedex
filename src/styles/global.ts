@@ -1,5 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 
+import { font, fontWeight } from './variables';
+
 export default createGlobalStyle`
 	:root {
 		--color-black: black;
@@ -19,6 +21,9 @@ export default createGlobalStyle`
 
 	body {
 		-webkit-font-smoothing: antialiased;
+		font-family: 'Montserrat', sans-serif;
+		font-size: ${font.normal};
+		font-weight: ${fontWeight.normal}
 	}
 
 	button {

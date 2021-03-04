@@ -13,11 +13,11 @@ export default function login() {
 				<div className="inputs">
 					<div className="input">
 						<label htmlFor="input">E-mail</label>
-						<input type="email"/>
+						<input type="email" placeholder="E-mail" />
 					</div>
 					<div className="input">
 						<label htmlFor="input">Senha</label>
-						<input type="password"/>
+						<input type="password" placeholder="Senha" />
 					</div>
 				</div>
 

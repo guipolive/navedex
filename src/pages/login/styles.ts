@@ -67,21 +67,7 @@ export const LoginContainer = styled.div`
 	}
 
 	button {
-		width: 100%;
-		padding: .7em .5em;
-		background-color: var(--color-black);
-		color: var(--color-white);
-		border: 0;
-
 		margin-top: auto;
-
-		font-weight: ${fontWeight.bold};
-
-		transition: transform .2s, box-shadow .2s;
-
-		&:hover {
-			transform: translateY(-2px);
-			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-		}
+		width: 100%;
 	}
 `

@@ -4,6 +4,7 @@ export const size = {
 }
 
 export const font = {
+	bigger: '40px',
 	normal: '16px',
 	small: '14px'
 }

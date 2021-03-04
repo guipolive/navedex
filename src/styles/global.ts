@@ -13,6 +13,7 @@ export default createGlobalStyle`
 		padding: 0;
 		box-sizing: border-box;
 		outline: 0;
+		font-family: 'Montserrat', sans-serif;
 	}
 
 	html, body, #root {
@@ -27,11 +28,30 @@ export default createGlobalStyle`
 	}
 
 	button {
+		padding: .7em 1em;
+		background-color: var(--color-black);
+		color: var(--color-white);
+		border: 0;
+
 		cursor: pointer;
+
+		font-weight: ${fontWeight.bold};
+
+		transition: transform .2s, box-shadow .2s;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+		}
 	}
 
 	div#__next {
 		height: 100%;
 		width: 100%;
+	}
+
+	h1 {
+		font-size: ${font.bigger};
+		font-weight: ${fontWeight.bold};
 	}
 `;

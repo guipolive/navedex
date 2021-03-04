@@ -15,5 +15,5 @@ export const LoginContainer = styled.div`
 	width: 300px;
 	height: 300px;
 
-	border: 1px solid black;
+	border: 1px solid var(--color-black);
 `

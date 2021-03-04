@@ -1,6 +1,10 @@
 import {createGlobalStyle} from 'styled-components';
 
 export default createGlobalStyle`
+	:root {
+		--color-black: black;
+	}
+	
 	* {
 		margin: 0;
 		padding: 0;

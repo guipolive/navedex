@@ -7,7 +7,7 @@ export default function login() {
 
 			<LoginContainer>
 				<header>
-					<img src="" alt=""/>
+					<img src="logo.png" alt="Nave.rs"/>
 				</header>
 
 				<div className="inputs">

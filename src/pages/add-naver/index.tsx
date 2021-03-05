@@ -1,7 +1,7 @@
 import HandleNaver from "../../components/HandleNaver";
 import Header from "../../components/Header";
 
-export default function addNaver() {
+export default function AddNaver() {
 	return(
 		<>
 			<Header />

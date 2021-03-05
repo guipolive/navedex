@@ -1,8 +1,8 @@
 import Router from 'next/router';
-import Header from '../../components/Header'
-import { NaverCard } from '../../components/NaverCard'
+import Header from '../components/Header'
+import { NaverCard } from '../components/NaverCard'
 
-import {NaversListHeader, NaversList} from './styles';
+import {NaversListHeader, NaversList} from '../styles/pages/home';
 
 export default function Home() {
 	function handleAddNaver() {

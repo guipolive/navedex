@@ -1,6 +1,6 @@
-import { fontWeight } from './../../styles/variables';
+import { fontWeight } from '../variables';
 import styled from "styled-components"
-import {font} from '../../styles/variables';
+import {font} from '../variables';
 
 export const LoginPage = styled.div`
 	width: 100%;

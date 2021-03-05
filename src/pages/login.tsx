@@ -1,6 +1,6 @@
 import Router from 'next/router';
-import Input from '../../components/Input';
-import {LoginContainer, LoginPage} from './styles';
+import Input from '../components/Input';
+import {LoginContainer, LoginPage} from '../styles/pages/login';
 
 export default function Login() {
 	function handleLogin() {

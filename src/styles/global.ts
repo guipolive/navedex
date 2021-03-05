@@ -33,6 +33,10 @@ export default createGlobalStyle`
 		color: var(--color-white);
 		border: 0;
 
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
 		cursor: pointer;
 
 		font-weight: ${fontWeight.bold};

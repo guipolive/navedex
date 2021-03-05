@@ -1,7 +1,11 @@
-export default function addNaver() {
+import HandleNaver from "../../components/HandleNaver";
+import Header from "../../components/Header";
+
+export default function EditNaver() {
 	return(
 		<>
-			<h1>Editar Naver</h1>
+			<Header />
+			<HandleNaver title="Editar Naver" />
 		</>
 	)
 }

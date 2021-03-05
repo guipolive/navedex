@@ -1,53 +1,75 @@
-import Input from '../Input';
-import {HandleNaverContainer} from './styles';
+import Router from 'next/router';
 
-export default function HandleNaver() {
+import Input from '../Input';
+import {HandleNaverContainer, HandleNaverWrapper} from './styles';
+
+interface HandleNaverProps {
+	title: string;
+}
+
+export default function HandleNaver(props: HandleNaverProps) {
+	function handleGoBack() {
+		Router.push('/');
+	}
+
 	return(
-		<HandleNaverContainer>
-			<header>
-				<img src="chevron-left.svg" alt="Voltar"/>
-				<h2>Adicionar Naver</h2>
+		<HandleNaverWrapper>
+
+			
+			<HandleNaverContainer>
+				<header onClick={handleGoBack} >
+					<img src="chevron-left.svg" alt="Voltar"/>
+					<h2>{props.title}</h2>
+				</header>
 
 				<div className="inputs">
-					<div className="input">
-						<Input 
-							label="Nome"
-							placeholder="Nome"
-							value="0"
+					<Input 
+						className="input"
+						label="Nome"
+						placeholder="Nome"
+						value="0"
 						/>
-						
-						<Input 
-							label="Cargo"
-							placeholder="Cargo"
-							value="0"
+					
+					<Input 
+						className="input"
+						label="Cargo"
+						placeholder="Cargo"
+						value="0"
 						/>
-						
-						<Input 
-							label="Idade"
-							placeholder="Idade"
-							value="0"
+					
+					<Input 
+						className="input"
+						label="Idade"
+						placeholder="Idade"
+						value="0"
 						/>
-						
-						<Input 
-							label="Tempo de empresa"
-							placeholder="Tempo de empresa"
-							value="0"
-						/>
-
-						<Input 
-							label="Projetos que participou"
-							placeholder="Tempo de empresa"
-							value="0"
+					
+					<Input 
+						className="input"
+						label="Tempo de empresa"
+						placeholder="Tempo de empresa"
+						value="0"
 						/>
 
-						<Input 
-							label="URL da foto"
-							placeholder="Tempo de empresa"
-							value="0"
+					<Input 
+						className="input"
+						label="Projetos que participou"
+						placeholder="Tempo de empresa"
+						value="0"
 						/>
-					</div>
+
+					<Input 
+						className="input"
+						label="URL da foto"
+						placeholder="Tempo de empresa"
+						value="0"
+						/>
 				</div>
-			</header>
-		</HandleNaverContainer>
+
+				<button>
+					Salvar
+				</button>
+			</HandleNaverContainer>
+		</HandleNaverWrapper>
 	)
 }

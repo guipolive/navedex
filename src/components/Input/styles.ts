@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { font, fontWeight } from '../../styles/variables';
 
 export const InputContainer = styled.div`
+	width: 100%;
+
 	label {
 		display: block;
 		

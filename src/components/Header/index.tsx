@@ -6,9 +6,13 @@ export default function Header() {
 		Router.push('/login');
 	}
 
+	function handleGoHome() {
+		Router.push('/');
+	}
+
 	return (
 		<HeaderContainer>
-			<img src="logo.png" alt="Nave.rs"/>
+			<img onClick={handleGoHome} src="logo.png" alt="Nave.rs"/>
 			<p onClick={handleExit} >
 				Sair
 			</p>

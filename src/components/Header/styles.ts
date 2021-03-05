@@ -11,9 +11,11 @@ export const HeaderContainer = styled.div`
 
 	img {
 		width: 145px;
+		cursor: pointer;
 	}
 
 	p {
+		cursor: pointer;
 		font-weight: ${fontWeight.bold};
 	}
 `;

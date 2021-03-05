@@ -1,6 +1,12 @@
+import Router from 'next/router';
+import Input from '../../components/Input';
 import {LoginContainer, LoginPage} from './styles';
 
 export default function login() {
+	function handleLogin() {
+		Router.push('/home');
+	}
+
 	return (
 
 		<LoginPage>
@@ -11,17 +17,24 @@ export default function login() {
 				</header>
 
 				<div className="inputs">
-					<div className="input">
-						<label htmlFor="input">E-mail</label>
-						<input type="email" placeholder="E-mail" />
-					</div>
-					<div className="input">
-						<label htmlFor="input">Senha</label>
-						<input type="password" placeholder="Senha" />
-					</div>
+					<Input 
+						className="input"
+						label="E-mail"
+						placeholder="E-mail"
+						value="E-mail"
+						type="email"
+						/>
+					
+					<Input 
+						className="input"
+						label="Senha"
+						placeholder="Senha"
+						value="Senha"
+						type="password"
+					/>
 				</div>
 
-				<button>
+				<button onClick={handleLogin}>
 					Entrar
 				</button>
 			</LoginContainer>

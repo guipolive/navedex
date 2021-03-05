@@ -41,29 +41,15 @@ export const LoginContainer = styled.div`
 	.inputs {
 		width: 100%;
 		margin: auto 0;
+	
+	}
+
+	.input {
+		width: 100%;
 	}
 
 	.input + .input {
 		margin-top: 2em;
-	}
-
-	.input {
-		
-		label {
-			display: block;
-			
-			margin-bottom: 4px;
-			
-			font-size: ${font.small};
-			font-weight: ${fontWeight.bold};
-		}
-
-		input {
-			padding: .7em .5em;
-			width: 100%;
-			border: 1px solid var(--color-black);
-		}
-
 	}
 
 	button {

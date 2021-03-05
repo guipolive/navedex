@@ -1,4 +1,5 @@
 import Header from '../../components/Header'
+import { NaverCard } from '../../components/NaverCard'
 
 import {NaversListHeader, NaversList} from './styles';
 
@@ -17,7 +18,14 @@ export default function Home() {
 			</NaversListHeader>
 
 			<NaversList>
-				
+				<NaverCard />
+				<NaverCard />
+				<NaverCard />
+				<NaverCard />
+				<NaverCard />
+				<NaverCard />
+				<NaverCard />
+				<NaverCard />
 			</NaversList>
 		</>
 	)

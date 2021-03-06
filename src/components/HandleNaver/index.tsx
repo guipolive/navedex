@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Input from '../Input';
 import {HandleNaverContainer, HandleNaverWrapper} from './styles';
 import { useEffect, useState } from 'react';
-import api from '../../functions/api';
 import { getNavers } from '../../hooks/getNavers';
 
 interface HandleNaverProps {
@@ -24,7 +23,7 @@ interface Naver {
 }
 
 export default function HandleNaver(props: HandleNaverProps) {
-	const {query} = useRouter();
+	const {query, route} = useRouter();
 
 	const {data} = getNavers<Naver>(`/navers/${query.id}`);
 
@@ -34,8 +33,6 @@ export default function HandleNaver(props: HandleNaverProps) {
 	const [admissionDate, setAdmissionDate] = useState('');
 	const [project, setProject] = useState('');
 	const [url, setUrl] = useState('');
-
-	// const response = api.get(`/navers/${query.id}`);
 	
 	useEffect(() => {
 		if(data) {
@@ -52,7 +49,7 @@ export default function HandleNaver(props: HandleNaverProps) {
 		Router.push('/');
 	}
 
-	if(!data) {
+	if(!data && route !== '/add-naver') {
 		return null;
 	}
 

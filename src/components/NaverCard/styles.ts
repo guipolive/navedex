@@ -8,6 +8,8 @@ export const Naver = styled.article`
 	.naver__image{
 		width: 100%;
 		height: 280px;
+
+		object-fit: cover;
 	}
 
 	.naver__name {

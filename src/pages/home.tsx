@@ -7,10 +7,31 @@ import Modal__Simple from '../components/Modal__Simple';
 
 import {NaversListHeader, NaversList} from '../styles/pages/home';
 import isAuthenticated from '../functions/isAuthenticated';
+import { getNavers } from '../hooks/getNavers';
+
+interface Naver {
+	id: string;
+	name: string;
+	admission_date: string;
+	job_role: string;
+	user_id: string;
+	project: string;
+	birthdate: string;
+	url: string;
+}
 
 export default function Home() {
+
+	const {data} = getNavers<Naver[]>('/navers');
+
+	console.log(data);
+
 	function handleAddNaver() {
 		Router.push('/add-naver');
+	}
+
+	if(!data) {
+		return null;
 	}
 
 	return(
@@ -27,14 +48,14 @@ export default function Home() {
 			</NaversListHeader>
 
 			<NaversList>
-				<NaverCard />
-				<NaverCard />
-				<NaverCard />
-				<NaverCard />
-				<NaverCard />
-				<NaverCard />
-				<NaverCard />
-				<NaverCard />
+				{data.map(naver => (
+					<NaverCard 
+						key={naver.id}
+						name={naver.name}
+						job_role={naver.job_role}
+						url={naver.url}
+					/>
+				))}
 			</NaversList>
 
 			{/* <Modal__Simple 

@@ -24,8 +24,6 @@ export default function Home() {
 
 	const {data} = getNavers<Naver[]>('/navers');
 
-	console.log(data);
-
 	function handleAddNaver() {
 		Router.push('/add-naver');
 	}
@@ -50,6 +48,7 @@ export default function Home() {
 			<NaversList>
 				{data.map(naver => (
 					<NaverCard 
+						id={naver.id}
 						key={naver.id}
 						name={naver.name}
 						job_role={naver.job_role}

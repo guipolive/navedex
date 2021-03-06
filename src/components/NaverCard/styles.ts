@@ -32,6 +32,13 @@ export const Naver = styled.article`
 	.naver__action {
 		width: 24px;
 		height: 24px;
+
+		transition: .2s;
+	}
+
+	.naver__action:hover {
+		transform: translateY(-2px);
+		cursor: pointer;
 	}
 
 	.naver__action + .naver__action {

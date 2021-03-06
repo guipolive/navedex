@@ -1,8 +1,12 @@
 import Router from 'next/router';
+
+// Components
 import Header from '../components/Header'
 import { NaverCard } from '../components/NaverCard'
+import Modal__Simple from '../components/Modal__Simple';
 
 import {NaversListHeader, NaversList} from '../styles/pages/home';
+import isAuthenticated from '../functions/isAuthenticated';
 
 export default function Home() {
 	function handleAddNaver() {
@@ -32,6 +36,20 @@ export default function Home() {
 				<NaverCard />
 				<NaverCard />
 			</NaversList>
+
+			{/* <Modal__Simple 
+				title="Excluir naver"
+				body="Tem certeza que deseja excluir esse naver?" 
+			/> */}
 		</>
 	)
+}
+
+export async function getServerSideProps(ctx) {
+  if (!isAuthenticated(ctx.req)) {
+    ctx.res.writeHead(303, { Location: '/login' });
+    ctx.res.end();
+  }
+
+  return { props: {} };
 }

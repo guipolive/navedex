@@ -1,8 +1,11 @@
 import Router from 'next/router';
 import {HeaderContainer} from './styles';
 
+import Cookies from 'js-cookie';
+
 export default function Header() {
 	function handleExit() {
+		Cookies.set('nave_token', '');
 		Router.push('/login');
 	}
 

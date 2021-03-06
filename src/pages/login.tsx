@@ -9,21 +9,26 @@ export default function Login() {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
+	const [isError, setIsError] = useState(false);
 
 	function handleLogin() {
+		setIsLoading(true);
+
 		api.post('/users/login', {
 			email: email,
 			password: password
-	}).then(response => {
+		}).then(response => {
 			setAccessToken(response.data.token);
 			// setAuthenticated(true);
 			Router.push('/home');
-	}).catch(error => {
+		}).catch(error => {
+			setIsLoading(false);
+			setIsError(true);
 			console.log(error, error.response);
 			setAccessToken('');
 			// setIsErrorModalOpen(true);
-	});
-
+		});
 	}
 
 	return (
@@ -55,8 +60,12 @@ export default function Login() {
 					/>
 				</div>
 
+				{!isLoading && isError &&
+					<p className="error">Erro ao tentar fazer login!</p>
+				}
+
 				<button onClick={handleLogin}>
-					Entrar
+					{isLoading && 'Carregando...' || 'Entrar'}
 				</button>
 			</LoginContainer>
 		</LoginPage>

@@ -1,4 +1,4 @@
-import { fontWeight } from '../variables';
+import { fontWeight } from './../variables';
 import styled from "styled-components"
 import {font} from '../variables';
 
@@ -50,6 +50,12 @@ export const LoginContainer = styled.div`
 
 	.input + .input {
 		margin-top: 2em;
+	}
+
+	p.error {
+		color: red;
+		margin: .5em 0;
+		font-weight: ${fontWeight.bold}
 	}
 
 	button {

@@ -9,6 +9,8 @@ import { getNavers } from '../../hooks/getNavers';
 
 import moment from 'moment';
 import 'moment/locale/pt-br';
+import api from '../../functions/api';
+import Modal__Simple from '../Modal__Simple';
 
 interface HandleNaverProps {
 	title: string;
@@ -28,17 +30,54 @@ interface Naver {
 export default function HandleNaver(props: HandleNaverProps) {
 	const {query, route} = useRouter();
 
-	const {data} = getNavers<Naver>(`/navers/${query.id}`);
-
 	const [name, setName] = useState('');
 	const [jobRole, setJobRole] = useState('');
 	const [birthDate, setBirthDate] = useState('');
 	const [admissionDate, setAdmissionDate] = useState('');
 	const [project, setProject] = useState('');
 	const [url, setUrl] = useState('');
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+	
+	const {data} = getNavers<Naver>(`/navers/${query.id}`);
+	
+	function handleSaveNaver() {
+		if(route == '/edit-naver/[id]') {
+			api.put(`/navers/${query.id}`, {
+				job_role: jobRole,
+				admission_date: admissionDate,
+				birthdate: birthDate,
+				project: project,
+				name: name,
+				url: url
+			})
+
+			setIsModalOpen(true);
+
+		} else if(route == '/add-naver') {
+			console.log('Chegou aqui');
+			
+			api.post('/navers', {
+				job_role: jobRole,
+				admission_date: admissionDate,
+				birthdate: birthDate,
+				project: project,
+				name: name,
+				url: url
+			}).then(function (response) {
+				console.log('Chegou Lá');
+				setIsModalOpen(true); 
+			}).catch(function (error) {
+				console.log(error, error.response);
+				setIsErrorModalOpen(true);
+			});
+		}
+	}
 	
 	useEffect(() => {
-		if(data) {
+		if(route == '/edit-naver/[id]' && data) {
+
 			setName(data.name);
 			setJobRole(data.job_role);
 			setBirthDate(moment(data.birthdate).locale('pt-br').fromNow(true));
@@ -46,8 +85,10 @@ export default function HandleNaver(props: HandleNaverProps) {
 			setProject(data.project);
 			setUrl(data.url);
 
-			console.log(moment(data.birthdate, 'YYYY-MM-DD').format('DD/MM/YYYY'));
+		} else if (route == '/add-naver') {
+
 		}
+
 	}, [data])
 
 	function handleGoBack() {
@@ -93,7 +134,7 @@ export default function HandleNaver(props: HandleNaverProps) {
 						// onChange={e => setBirthDate(e.target.value)}
 						type="date"
 						value={moment(birthDate || null, "DD/MM/YYYY").format('YYYY-MM-DD')}
-						onChange={e => setAdmissionDate(moment(e.target.value, 'YYYY-MM-DD').format('DD/MM/YYYY'))}
+						onChange={e => setBirthDate(moment(e.target.value, 'YYYY-MM-DD').format('DD/MM/YYYY'))}
 						// maxLength={10}
 						/>
 					
@@ -126,10 +167,43 @@ export default function HandleNaver(props: HandleNaverProps) {
 						/>
 				</div>
 
-				<button>
+				<button onClick={handleSaveNaver}>
 					Salvar
 				</button>
 			</HandleNaverContainer>
+
+			{isModalOpen && route == 'add-naver' &&
+				<Modal__Simple 
+					title="Naver criado"
+					body="Naver criado com sucesso!"
+					onClose={() => {
+						setIsModalOpen(false);
+						Router.push('/home');
+					}}
+				/>
+			}
+			
+			{isModalOpen && route == '/edit-naver/[id]' &&
+				<Modal__Simple 
+					title="Naver atualizado"
+					body="Naver atualizado com sucesso!"
+					onClose={() => {
+						setIsModalOpen(false);
+						Router.push('/home');
+					}}
+				/>
+			}
+
+			{isErrorModalOpen && 
+				<Modal__Simple 
+					onClose={() => {
+						null
+					}}
+					title="Erro!"
+					body="Erro ao tentar inserir ou atualizar Naver."
+				/>
+			}
+
 		</HandleNaverWrapper>
 	)
 }

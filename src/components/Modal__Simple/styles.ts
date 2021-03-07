@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ModalWrapper = styled.div`
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	
 	position: fixed;
 	top: 0;
@@ -47,5 +47,22 @@ export const ModalContainer = styled.div`
 
 	p {
 		margin-top: 3em;
+	}
+
+	div.children {
+		display: flex;
+		align-items: center;
+
+		justify-content: flex-end;
+
+		margin-top: 2em;
+
+		button {
+			width: 12em;
+		}
+
+		button + button {
+			margin-left: 1.5em;
+		}
 	}
 `;

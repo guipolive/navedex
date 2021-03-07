@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {ModalContainer, ModalWrapper} from './styles';
 
 interface ModalProps{
@@ -7,7 +9,8 @@ interface ModalProps{
 	onClose(): void;
 }
 
-export default function Modal__Simple(props: ModalProps) {
+// export default function Modal__Simple(props: ModalProps) {
+const Modal__Simple: React.FC<ModalProps>= (props)=> {
 	return(
 		<ModalWrapper>
 			<ModalContainer>
@@ -19,7 +22,13 @@ export default function Modal__Simple(props: ModalProps) {
 
 				<h2>{props.title}</h2>
 				<p>{props.body}</p>
+
+				<div className="children">
+					{props.children}
+				</div>
 			</ModalContainer>
 		</ModalWrapper>
 	)
 }
+
+export default Modal__Simple;

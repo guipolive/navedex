@@ -51,9 +51,12 @@ export default function HandleNaver(props: HandleNaverProps) {
 				project: project,
 				name: name,
 				url: url
-			})
-
-			setIsModalOpen(true);
+			}).then(function (response) {
+				setIsModalOpen(true); 
+			}).catch(function (error) {
+				console.log(error, error.response);
+				setIsErrorModalOpen(true);
+			});
 
 		} else if(route == '/add-naver') {
 			console.log('Chegou aqui');
@@ -66,7 +69,6 @@ export default function HandleNaver(props: HandleNaverProps) {
 				name: name,
 				url: url
 			}).then(function (response) {
-				console.log('Chegou Lá');
 				setIsModalOpen(true); 
 			}).catch(function (error) {
 				console.log(error, error.response);
@@ -197,7 +199,7 @@ export default function HandleNaver(props: HandleNaverProps) {
 			{isErrorModalOpen && 
 				<Modal__Simple 
 					onClose={() => {
-						null
+						setIsErrorModalOpen(false);
 					}}
 					title="Erro!"
 					body="Erro ao tentar inserir ou atualizar Naver."

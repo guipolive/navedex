@@ -8,6 +8,7 @@ import Modal__Simple from '../components/Modal__Simple';
 import {NaversListHeader, NaversList} from '../styles/pages/home';
 import isAuthenticated from '../functions/isAuthenticated';
 import { getNavers } from '../hooks/getNavers';
+import { useState } from 'react';
 
 interface Naver {
 	id: string;
@@ -61,6 +62,8 @@ export default function Home() {
 				title="Excluir naver"
 				body="Tem certeza que deseja excluir esse naver?" 
 			/> */}
+
+			
 		</>
 	)
 }

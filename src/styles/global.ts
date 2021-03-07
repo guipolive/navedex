@@ -16,8 +16,9 @@ export default createGlobalStyle`
 		font-family: 'Montserrat', sans-serif;
 	}
 
-	html, body, #root {
-		height: 100%
+	html, body, #root, #__next {
+		min-height: 100%;
+		min-width: 100%;
 	}
 
 	body {

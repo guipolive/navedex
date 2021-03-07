@@ -7,6 +7,9 @@ import {HandleNaverContainer, HandleNaverWrapper} from './styles';
 import { useEffect, useState } from 'react';
 import { getNavers } from '../../hooks/getNavers';
 
+import moment from 'moment';
+import 'moment/locale/pt-br';
+
 interface HandleNaverProps {
 	title: string;
 }
@@ -38,10 +41,12 @@ export default function HandleNaver(props: HandleNaverProps) {
 		if(data) {
 			setName(data.name);
 			setJobRole(data.job_role);
-			setBirthDate(data.birthdate);
-			setAdmissionDate(data.admission_date);
+			setBirthDate(moment(data.birthdate).locale('pt-br').fromNow(true));
+			setAdmissionDate(moment(data.admission_date).locale('pt-br').fromNow(true));
 			setProject(data.project);
 			setUrl(data.url);
+
+			console.log(moment(data.birthdate, 'YYYY-MM-DD').format('DD/MM/YYYY'));
 		}
 	}, [data])
 
@@ -84,16 +89,24 @@ export default function HandleNaver(props: HandleNaverProps) {
 						className="input"
 						label="Idade"
 						placeholder="Idade"
-						value={birthDate}
-						onChange={e => setBirthDate(e.target.value)}
+						// value={birthDate}
+						// onChange={e => setBirthDate(e.target.value)}
+						type="date"
+						value={moment(birthDate || null, "DD/MM/YYYY").format('YYYY-MM-DD')}
+						onChange={e => setAdmissionDate(moment(e.target.value, 'YYYY-MM-DD').format('DD/MM/YYYY'))}
+						// maxLength={10}
 						/>
 					
 					<Input 
 						className="input"
 						label="Tempo de empresa"
 						placeholder="Tempo de empresa"
-						value={admissionDate}
-						onChange={e => setAdmissionDate(e.target.value)}
+						// value={admissionDate}
+						// onChange={e => setAdmissionDate(e.target.value)}
+						
+						type="date"
+						value={moment(admissionDate || null, "DD/MM/YYYY").format('YYYY-MM-DD')}
+						onChange={e => setAdmissionDate(moment(e.target.value, 'YYYY-MM-DD').format('DD/MM/YYYY'))}
 						/>
 
 					<Input 

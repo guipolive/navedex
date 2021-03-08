@@ -1,5 +1,6 @@
 export const size = {
 	mobile: 'min-width: 320px',
+	mobile_only: 'max-width: 800px',
 	desktop: 'min-width: 800px'
 }
 

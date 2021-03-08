@@ -59,8 +59,6 @@ export default function HandleNaver(props: HandleNaverProps) {
 			});
 
 		} else if(route == '/add-naver') {
-			console.log('Chegou aqui');
-			
 			api.post('/navers', {
 				job_role: jobRole,
 				admission_date: admissionDate,
@@ -69,6 +67,7 @@ export default function HandleNaver(props: HandleNaverProps) {
 				name: name,
 				url: url
 			}).then(function (response) {
+				console.log('isuiuiuu');
 				setIsModalOpen(true); 
 			}).catch(function (error) {
 				console.log(error, error.response);
@@ -174,7 +173,7 @@ export default function HandleNaver(props: HandleNaverProps) {
 				</button>
 			</HandleNaverContainer>
 
-			{isModalOpen && route == 'add-naver' &&
+			{isModalOpen && route == '/add-naver' &&
 				<Modal__Simple 
 					title="Naver criado"
 					body="Naver criado com sucesso!"

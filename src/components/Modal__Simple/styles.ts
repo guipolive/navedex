@@ -28,6 +28,8 @@ export const ModalContainer = styled.div`
 
 	height: auto;
 
+	z-index: 150;
+
 	img {
 		position: absolute;
 		top: 1.5em;

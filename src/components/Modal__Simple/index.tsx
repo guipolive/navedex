@@ -10,7 +10,7 @@ interface ModalProps{
 }
 
 // export default function Modal__Simple(props: ModalProps) {
-const Modal__Simple: React.FC<ModalProps>= (props)=> {
+const Modal__Simple: React.FC<ModalProps> = (props)=> {
 	return(
 		<ModalWrapper>
 			<ModalContainer>

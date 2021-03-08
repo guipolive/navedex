@@ -8,7 +8,7 @@ import Modal__Simple from '../components/Modal__Simple';
 import {NaversListHeader, NaversList} from '../styles/pages/home';
 import isAuthenticated from '../functions/isAuthenticated';
 import { getNavers } from '../hooks/getNavers';
-import { useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 interface Naver {
 	id: string;
@@ -47,9 +47,12 @@ export default function Home() {
 			</NaversListHeader>
 
 			<NaversList>
-				{data.map(naver => (
+				{data?.map(naver => (
 					<NaverCard 
 						id={naver.id}
+						birthdate={naver.birthdate}
+						project={naver.project}
+						admission_date={naver.admission_date}
 						key={naver.id}
 						name={naver.name}
 						job_role={naver.job_role}

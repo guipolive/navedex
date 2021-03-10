@@ -6,6 +6,7 @@ export default createGlobalStyle`
 	:root {
 		--color-black: black;
 		--color-white: white;
+		--image-filter: 0;
 	}
 	
 	* {
@@ -19,13 +20,17 @@ export default createGlobalStyle`
 	html, body, #root, #__next {
 		min-height: 100%;
 		min-width: 100%;
+		height: 100%;
 	}
 
 	body {
 		-webkit-font-smoothing: antialiased;
 		font-family: 'Montserrat', sans-serif;
 		font-size: ${font.normal};
-		font-weight: ${fontWeight.normal}
+		font-weight: ${fontWeight.normal};
+
+		background-color: var(--color-white);
+		color: var(--color-black);
 	}
 
 	button {
@@ -58,5 +63,13 @@ export default createGlobalStyle`
 	h1 {
 		font-size: ${font.bigger};
 		font-weight: ${fontWeight.bold};
+	}
+
+	img.login-logo,
+	img.theme-icon,
+	img.close_button,
+	img.naver__action,
+	img[decoding="async"] {
+		filter: brightness(var(--image-filter));
 	}
 `;

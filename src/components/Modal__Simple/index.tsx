@@ -9,7 +9,6 @@ interface ModalProps{
 	onClose(): void;
 }
 
-// export default function Modal__Simple(props: ModalProps) {
 const Modal__Simple: React.FC<ModalProps> = (props)=> {
 	return(
 		<ModalWrapper>

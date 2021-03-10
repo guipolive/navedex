@@ -18,4 +18,22 @@ export const HeaderContainer = styled.div`
 		cursor: pointer;
 		font-weight: ${fontWeight.bold};
 	}
+
+	.theme-changer {
+		display: flex;
+		align-items: center;
+	}
+
+	img.theme-icon {
+		margin-left: 5px;
+		width: 24px;
+		height: 24px;
+
+		transition: .2s;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+	}
+
 `;

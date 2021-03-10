@@ -20,14 +20,12 @@ export default function Login() {
 			password: password
 		}).then(response => {
 			setAccessToken(response.data.token);
-			// setAuthenticated(true);
 			Router.push('/home');
 		}).catch(error => {
 			setIsLoading(false);
 			setIsError(true);
 			console.log(error, error.response);
 			setAccessToken('');
-			// setIsErrorModalOpen(true);
 		});
 	}
 
@@ -37,7 +35,7 @@ export default function Login() {
 
 			<LoginContainer>
 				<header>
-					<img src="logo.png" alt="Nave.rs"/>
+					<img className="login-logo" src="logo.png" alt="Nave.rs"/>
 				</header>
 
 				<div className="inputs">

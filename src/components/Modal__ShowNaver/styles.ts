@@ -8,7 +8,7 @@ export const ModalWrapper = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 20;
+	z-index: 10;
 
 	background-color: rgba(0, 0 ,0 ,0.8);
 
@@ -20,7 +20,7 @@ export const ModalWrapper = styled.div`
 export const ModalContainer = styled.div`
 	position: relative;
 	
-	background: #ffffff;
+	background-color: var(--color-white);
 
 	/* padding: 3.2rem; */
 
@@ -30,7 +30,7 @@ export const ModalContainer = styled.div`
 	/* height: auto; */
 	height: 600px;
 
-	z-index: 30;
+	z-index: 10;
 
 	img.close_button {
 		position: absolute;
@@ -42,11 +42,6 @@ export const ModalContainer = styled.div`
 		height: 1.5em;
 
 		z-index: 130;
-
-		@media(${size.mobile_only}) {
-			background-color: white;
-			border-radius: 5px;
-		}
 
 		cursor: pointer;
 	}

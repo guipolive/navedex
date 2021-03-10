@@ -3,12 +3,10 @@ import Router from 'next/router';
 // Components
 import Header from '../components/Header'
 import { NaverCard } from '../components/NaverCard'
-import Modal__Simple from '../components/Modal__Simple';
 
 import {NaversListHeader, NaversList} from '../styles/pages/home';
 import isAuthenticated from '../functions/isAuthenticated';
 import { getNavers } from '../hooks/getNavers';
-import { useEffect, useLayoutEffect, useState } from 'react';
 
 interface Naver {
 	id: string;
@@ -61,12 +59,6 @@ export default function Home() {
 				))}
 			</NaversList>
 
-			{/* <Modal__Simple 
-				title="Excluir naver"
-				body="Tem certeza que deseja excluir esse naver?" 
-			/> */}
-
-			
 		</>
 	)
 }

@@ -1,4 +1,3 @@
-import Router from 'next/router';
 import Link from 'next/link';
 import {Naver} from './styles';
 import { useState } from 'react';
@@ -8,13 +7,17 @@ import api from '../../functions/api';
 
 import {mutate as globalMutate} from 'swr';
 
+
+import moment from 'moment';
+import 'moment/locale/pt-br';
+
 interface NaverProps {
+	// user_id: string;
 	id: string;
 	name: string;
 	admission_date: string;
 	job_role: string;
 	url: string;
-	// user_id: string;
 	project: string;
 	birthdate: string;
 }
@@ -45,10 +48,6 @@ export function NaverCard(props: NaverProps) {
 			});
 	}
 
-	function handleEditNaver() {
-		// Router.push(`/edit-naver/${props.id}`);
-	}
-
 	return(
 		<Naver>
 			<img 
@@ -57,8 +56,10 @@ export function NaverCard(props: NaverProps) {
 				alt="Nome do Naver"
 				onClick={() => setIsShowNaverModalOpen(true)}
 			/>
-			<p className="naver__name">{props.name}</p>
-			<p className="naver__role">{props.job_role}</p>
+			<div>
+				<p className="naver__name">{props.name}</p>
+				<p className="naver__role">{props.job_role}</p>
+			</div>
 			<div className="naver__actions">
 				<img 
 					className="naver__action" 
@@ -72,28 +73,11 @@ export function NaverCard(props: NaverProps) {
 				>
 					<img 
 						className="naver__action"
-						// onClick={handleEditNaver}
 						src="edit.svg" 
 						alt="Edit"
 					/>
 				</Link>
 			</div>
-
-			{isRemoveNaverModalOpen &&
-				<Modal__Simple
-					title="Excluir Naver"
-					body="Tem certeza de que deseja excluir este naver?"
-					onClose={() => setIsRemoveNaverModalOpen(false)}
-				>
-					<button onClick={() => setIsRemoveNaverModalOpen(false)} >
-						Cancelar
-					</button>
-					
-					<button onClick={handleRemoveNaver} >
-						{isExcluindo}
-					</button>
-				</Modal__Simple>
-			}
 
 			{isErrorModalOpen && 
 				<Modal__Simple 
@@ -126,10 +110,10 @@ export function NaverCard(props: NaverProps) {
 						<p>{props.job_role}</p>
 
 						<strong>Idade</strong>
-						<p>{props.birthdate}</p>
+						<p>{moment(props.birthdate).locale('pt-br').fromNow(true)}</p>
 						
 						<strong>Tempo de empresa</strong>
-						<p>{props.admission_date}</p>
+						<p>{moment(props.admission_date).locale('pt-br').fromNow(true)}</p>
 						
 						<strong>Projetos</strong>
 						<p>{props.project}</p>
@@ -150,7 +134,6 @@ export function NaverCard(props: NaverProps) {
 							>
 								<img 
 									className="naver__action"
-									// onClick={handleEditNaver}
 									src="edit.svg" 
 									alt="Edit"
 								/>
@@ -160,6 +143,22 @@ export function NaverCard(props: NaverProps) {
 					</div>
 
 				</Modal__ShowNaver>
+			}
+
+			{isRemoveNaverModalOpen &&
+				<Modal__Simple
+					title="Excluir Naver"
+					body="Tem certeza de que deseja excluir este naver?"
+					onClose={() => setIsRemoveNaverModalOpen(false)}
+				>
+					<button onClick={() => setIsRemoveNaverModalOpen(false)} >
+						Cancelar
+					</button>
+					
+					<button onClick={handleRemoveNaver} >
+						{isExcluindo}
+					</button>
+				</Modal__Simple>
 			}
 		</Naver>
 	)

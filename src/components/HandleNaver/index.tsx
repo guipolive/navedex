@@ -67,7 +67,6 @@ export default function HandleNaver(props: HandleNaverProps) {
 				name: name,
 				url: url
 			}).then(function (response) {
-				console.log('isuiuiuu');
 				setIsModalOpen(true); 
 			}).catch(function (error) {
 				console.log(error, error.response);
@@ -131,21 +130,15 @@ export default function HandleNaver(props: HandleNaverProps) {
 						className="input"
 						label="Idade"
 						placeholder="Idade"
-						// value={birthDate}
-						// onChange={e => setBirthDate(e.target.value)}
 						type="date"
 						value={moment(birthDate || null, "DD/MM/YYYY").format('YYYY-MM-DD')}
 						onChange={e => setBirthDate(moment(e.target.value, 'YYYY-MM-DD').format('DD/MM/YYYY'))}
-						// maxLength={10}
 						/>
 					
 					<Input 
 						className="input"
 						label="Tempo de empresa"
-						placeholder="Tempo de empresa"
-						// value={admissionDate}
-						// onChange={e => setAdmissionDate(e.target.value)}
-						
+						placeholder="Tempo de empresa"	
 						type="date"
 						value={moment(admissionDate || null, "DD/MM/YYYY").format('YYYY-MM-DD')}
 						onChange={e => setAdmissionDate(moment(e.target.value, 'YYYY-MM-DD').format('DD/MM/YYYY'))}

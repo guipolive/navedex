@@ -5,11 +5,23 @@ export const Naver = styled.article`
 	height: 420px;
 	width: 280px;
 
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
 	.naver__image{
 		width: 100%;
 		height: 280px;
 
+		cursor: pointer;
+
 		object-fit: cover;
+
+		transition: .2s;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
 	}
 
 	.naver__name {

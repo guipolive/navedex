@@ -19,7 +19,7 @@ export const ModalWrapper = styled.div`
 export const ModalContainer = styled.div`
 	position: relative;
 	
-	background: #ffffff;
+	background-color: var(--color-white);
 
 	padding: 3.2rem;
 
@@ -28,7 +28,7 @@ export const ModalContainer = styled.div`
 
 	height: auto;
 
-	z-index: 150;
+	z-index: 15;
 
 	img {
 		position: absolute;
@@ -61,6 +61,12 @@ export const ModalContainer = styled.div`
 
 		button {
 			width: 12em;
+		}
+
+		button:first-of-type {
+			background-color: white;
+			color: black;
+			border: 1px solid black;
 		}
 
 		button + button {

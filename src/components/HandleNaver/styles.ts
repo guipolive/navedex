@@ -27,6 +27,7 @@ export const HandleNaverContainer = styled.section`
 		img {
 			width: 24px;
 			height: 24px;
+			filter: brightness(var(--image-filter));
 		}
 
 		h2 {

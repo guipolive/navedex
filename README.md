@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Desafio de frontend da [Nave](https://nave.rs/)
 
-## Getting Started
+## Rodando a aplicação
+#### Localmente
+	$ yarn install
+	$ yarn dev 
 
-First, run the development server:
+  Acessar [http://localhost:3000](http://localhost:3000)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+#### Hospedada
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  Testar a [aplicação](https://guipolive-navedex.vercel.app/login) hospedada na Vercel
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Utilizar login e senha para testes:
+    - testing-user-new@nave.rs
+    - 1234nave5
+- Ou clicar no botão de `Entrar como usuário público`.
+## Sobre o desafio
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+O sistema consiste em uma web app para visualização e criação dos `Navers`, possuindo informações como nome, idade, cargo, tempo de empresa e projetos que participou.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Funcionalidades
 
-## Learn More
+- ### Login
 
-To learn more about Next.js, take a look at the following resources:
+    O web app possui um fluxo de autenticação, onde o usuário só pode acessar as telas internas do sistema (listagem, formulários) passando pela tela de login com as credenciais aceitas.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ### Visualização de dados
+    É possível visualizar os `naver's` na `home` e ao clicar em cima da imagem de um `naver` na `home`. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- ### Edição de dados
+    É possível alterar os dados de um `naver` ao clicar no ícone de edição na `home` ou a partir da modal de visualização de um `naver`.
 
-## Deploy on Vercel
+- ### Criação de dados
+    É possível criar um `naver` a partir do botão da tela inicial: `Adicionar naver`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Sobre o desenvolvimento
+O desenvolvimento da aplicação foi feito utilizando `Typescript`, `React.JS` e `Next.js`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Para a integração com a API foi utilizado o `Axios` .
+
+Alguns elementos foram convertidos em ```componentes react``` para reutilização e aproveitamento de código.
+
+## Funcionalidades extras
+- `Tema escuro!`
+  - Tema escuro guardado no ```localStorage``` do navegador	
+![Tema escuro](./public/dark-theme.gif)
+- `SWR`
+![SWR](./public/swr.gif)
+- `Responsividade`
+![Responsividade](./public/responsividade.gif)
+- Redirecionamento automático para ```/``` caso o usuário não esteja logado e tente acessar alguma rota que exija login.
+- Sessão guardada nos `cookies` do navegador.

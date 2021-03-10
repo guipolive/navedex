@@ -65,7 +65,7 @@ export const LoginContainer = styled.div`
 	p.public-user {
 		margin-top: auto;
 
-		font-size: 10px;
+		font-size: 14px;
 
 		cursor: pointer;
 

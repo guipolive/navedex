@@ -45,7 +45,12 @@ export function NaverCard(props: NaverProps) {
 				console.log(error, error.response);
 				setIsErrorModalOpen(true);
 				setIsExcluindo('Excluir');
-			});
+			}
+		);
+	}
+
+	function handleImage(ev) {
+		ev.target.src = '/default-naver-image.svg';
 	}
 
 	return(
@@ -53,7 +58,8 @@ export function NaverCard(props: NaverProps) {
 			<img 
 				className="naver__image"
 				src={props.url}
-				alt="Nome do Naver"
+				onError={handleImage}
+				alt={props.name}
 				onClick={() => setIsShowNaverModalOpen(true)}
 			/>
 			<div>

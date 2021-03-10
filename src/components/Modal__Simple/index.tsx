@@ -17,6 +17,7 @@ const Modal__Simple: React.FC<ModalProps> = (props)=> {
 					src="/cross.svg"
 					alt="Close"
 					onClick={props.onClose}
+					className="naver__action"
 				/>
 
 				<h2>{props.title}</h2>

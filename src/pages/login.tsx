@@ -28,6 +28,23 @@ export default function Login() {
 			setAccessToken('');
 		});
 	}
+	
+	function enterAsPublicUser() {
+		setIsLoading(true);
+
+		api.post('/users/login', {
+			email: 'testing-user-new@nave.rs',
+			password: '1234nave5'
+		}).then(response => {
+			setAccessToken(response.data.token);
+			Router.push('/home');
+		}).catch(error => {
+			setIsLoading(false);
+			setIsError(true);
+			console.log(error, error.response);
+			setAccessToken('');
+		});
+	}
 
 	return (
 
@@ -65,6 +82,13 @@ export default function Login() {
 				<button onClick={handleLogin}>
 					{isLoading && 'Carregando...' || 'Entrar'}
 				</button>
+
+				<p 
+					className="public-user" 
+					onClick={enterAsPublicUser}
+				>
+					Entrar como usuário público
+				</p>
 			</LoginContainer>
 		</LoginPage>
 	)

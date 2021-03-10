@@ -61,4 +61,20 @@ export const LoginContainer = styled.div`
 		margin-top: auto;
 		width: 100%;
 	}
+
+	p.public-user {
+		margin-top: auto;
+
+		font-size: 10px;
+
+		cursor: pointer;
+
+		transition: .2s;
+
+		text-decoration: underline;
+
+		&:hover {
+			transform: translateY(-1px);
+		}
+	}
 `
